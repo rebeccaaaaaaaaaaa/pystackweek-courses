@@ -1,11 +1,12 @@
 from django.http.response import Http404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Usuario
 
 
 def cadastro(request):
-    return render(request, 'cadastro.html')
+    status = request.GET.get('status')
+    return render(request, 'cadastro.html', {'status': status})
 
 def login(request):
     return render(request, 'login.html')
